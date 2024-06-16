@@ -42,6 +42,12 @@ if __name__ == "__main__":
                         else:
                             ruta_destino = ruta.ruta_casilla_cercana()
 
+                            # Si no encuentra la próxima ruta más cercana
+                            if ruta_destino == None:
+                                centro = (ruta.dimension // 2, ruta.dimension // 2)
+                                ruta_destino = ruta.A_star(centro[0], centro[1],objetivo="volver")
+                            
+                            #Si existe ruta para volver o explorar
                             if ruta_destino != None:
                                 direcciones = []
                                 for i in range(len(ruta_destino)-1):
@@ -92,9 +98,6 @@ if __name__ == "__main__":
                                     else:
                                         cadena_ruta += ">\n"
                                 ser.write(cadena_ruta.encode('utf-8'))
-                                #ser.write("<D,I,D,I,D,I,D,I>\n".encode('utf-8'))
-                            #else:
-                                #El caso de que ya no queden rutas por explorar
                     else:
                         print("La cadena no contiene datos sobre la ruta")
                     
