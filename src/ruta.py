@@ -44,9 +44,19 @@ class Ruta():
                     print("0", end=" ")
                 else:
                     print("U", end=" ")
-            print() 
-                
+            print()
 
+    def cargar_mapa(self):
+        mapa = {}
+        mapa["dimension"] = self.dimension
+        mapa["posX"] = self.posX
+        mapa["posY"] = self.posY
+        mapa["mapa"] = []
+        for i in range(self.dimension):
+            for j in range(self.dimension):
+                mapa["mapa"].append(self.mapa[i][j].value)
+        return mapa
+       
     def redimensionar(self):
         new_dimension = self.dimension * 5
         new_mapa = [None] * new_dimension

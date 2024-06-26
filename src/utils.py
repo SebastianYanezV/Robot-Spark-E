@@ -9,13 +9,13 @@ class Direcciones(Enum):
 
 # Declaración de las marcas en el mapa
 class Marca(Enum):
-    D = "Desconocido"
-    C = "Conocido"
-    O = "Obstáculo"
-    T_A = "Temperatura Alta"
-    T_M = "Temperatura Media"
-    G_A = "Gases noscivos Altos"
-    G_M = "Gases noscivos Medios"
+    D = "D"#"Desconocido" 
+    C = "C"#"Conocido"
+    O = "O"#"Obstáculo"
+    T_A = "T_A"#"Temperatura Alta"
+    T_M = "T_M"#"Temperatura Media"
+    G_A = "G_A"#"Gases noscivos Altos"
+    G_M = "G_M"#"Gases noscivos Medios"
 
 def procesar_cadena(cadena):
     # Asegúrate de que la cadena comienza con '<' y termina con '>'

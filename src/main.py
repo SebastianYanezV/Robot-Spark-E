@@ -3,7 +3,7 @@ import os
 from ruta import *
 from config import *
 from utils import *
-
+import json
 
 if __name__ == "__main__":
     ser = conexion_bt(puerto_serial, baud_rate)
@@ -28,8 +28,10 @@ if __name__ == "__main__":
                         if len(data) > 0:
                             print(f"Temperatura: {data["Temperatura"]}°C")
                             print(f"Humedad: {data["Humedad"]}%")
-                            print(f"Luminosidad: {data["Gas"]} ppm")
+                            print(f"Gas: {data["Gas"]} ppm")
                             print(f"Distancia: {data["Distancia"]} cm")
+                            with open('data/sensores.json', 'w') as file:
+                                json.dump(data, file, indent=4)
                             #os.system("cls")
                         else:
                             print("La cadena no contiene datos de los sensores")
@@ -45,7 +47,7 @@ if __name__ == "__main__":
                                 # Si no encuentra la próxima ruta más cercana
                                 if ruta_destino == None:
                                     centro = (ruta.dimension // 2, ruta.dimension // 2)
-                                    ruta_destino = ruta.A_star(centro[0], centro[1],objetivo="volver")
+                                    ruta_destino = ruta.A_star(centro[0], centro[1], objetivo="volver")
                                 
                                 #Si existe ruta para volver o explorar
                                 if ruta_destino != None:
@@ -98,11 +100,14 @@ if __name__ == "__main__":
                                         else:
                                             cadena_ruta += ">\n"
                                     ser.write(cadena_ruta.encode('utf-8'))
+                            mapa = ruta.cargar_mapa()
+                            with open('data/mapa.json', 'w') as file:
+                                json.dump(mapa, file, indent=4)
                         else:
                             print("La cadena no contiene datos sobre la ruta")
                         
                     else:
-                            print("Cadena de datos no válida")
+                        print("Cadena de datos no válida")
                 else:
                     print("No se recibieron datos.")
 
