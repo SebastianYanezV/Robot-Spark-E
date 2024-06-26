@@ -30,6 +30,14 @@ if __name__ == "__main__":
                             print(f"Humedad: {data["Humedad"]}%")
                             print(f"Gas: {data["Gas"]} ppm")
                             print(f"Distancia: {data["Distancia"]} cm")
+                            if(data["Gas"] >= 2000 and data["Gas"] <= 5000):
+                                ruta.marcar(Marca.G_M)
+                            if(data["Gas"] > 5000):
+                                ruta.marcar(Marca.G_A)
+                            if(data["Temperatura"] >= 30 and data["Temperatura"] <= 35):
+                                ruta.marcar(Marca.T_M)
+                            if(data["Temperatura"] > 35):
+                                ruta.marcar(Marca.T_A)
                             with open('data/sensores.json', 'w') as file:
                                 json.dump(data, file, indent=4)
                             #os.system("cls")
