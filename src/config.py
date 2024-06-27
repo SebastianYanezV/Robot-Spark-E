@@ -1,7 +1,7 @@
 import serial
 
 # Configuración del puerto serial
-puerto_serial = 'COM4'
+puerto_serial = 'COM6'
 baud_rate = 9600
 
 def conexion_bt(puerto_serial, baud_rate):

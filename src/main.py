@@ -26,10 +26,11 @@ if __name__ == "__main__":
                     print(linea_ruta)
                     if(data != None and linea_ruta != None):
                         if len(data) > 0:
-                            print(f"Temperatura: {data["Temperatura"]}°C")
-                            print(f"Humedad: {data["Humedad"]}%")
-                            print(f"Gas: {data["Gas"]} ppm")
-                            print(f"Distancia: {data["Distancia"]} cm")
+                            #print(f"Temperatura: {data["Temperatura"]}°C")
+                            print("Temperatura:" +  str(data["Temperatura"]) + "°C")
+                            print("Humedad:" + str(data["Humedad"]) +"%")
+                            print(f"Gas:" + str(data["Gas"]) +"ppm")
+                            print(f"Distancia:" + str(data["Distancia"]) +"cm")
                             if(data["Gas"] >= 2000 and data["Gas"] <= 5000):
                                 ruta.marcar(Marca.G_M)
                             if(data["Gas"] > 5000):

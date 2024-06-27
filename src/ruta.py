@@ -58,7 +58,7 @@ class Ruta():
         return mapa
        
     def redimensionar(self):
-        new_dimension = self.dimension * 5
+        new_dimension = self.dimension * 3
         new_mapa = [None] * new_dimension
         for i in range(new_dimension):
             new_mapa[i] = [Marca.D] * new_dimension

@@ -21,6 +21,7 @@ def procesar_cadena(cadena):
     # Asegúrate de que la cadena comienza con '<' y termina con '>'
     if cadena.startswith('<') and cadena.endswith('>'):
         # Eliminar los caracteres de inicio y fin
+        print(cadena)
         cadena = cadena[1:-1]
         
         # Dividir la cadena por comas

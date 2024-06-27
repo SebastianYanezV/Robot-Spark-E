@@ -1,6 +1,5 @@
 #include <SoftwareSerial.h>
 #include <DHT.h>
-#include <Servo.h>
 
 // Declaración de los pines para los Motores Izq y Der
 #define INT1 5
@@ -131,7 +130,7 @@ void loop() {
   // Enviar la cadena a través de Bluetooth
   String dataString = capturaData();
   mySerial.println(dataString);
-  delay(1000);  // Enviar datos cada segundo
+  delay(100);  // Enviar datos cada segundo
 }
 
 String capturaData() {
@@ -219,8 +218,8 @@ void moverse(char d) {
         mov.delay = 0;
       } else {
         mov.delay += 1;
-        motorA('R', 150);
-        motorB('A', 150);
+        motorA('R', 255);
+        motorB('A', 255);
       }
     }
 
@@ -231,8 +230,8 @@ void moverse(char d) {
         mov.delay = 0;
       } else {
         mov.delay += 1;
-        motorA('A', 150);
-        motorB('R', 150);
+        motorA('A', 255);
+        motorB('R', 255);
       }
     }
 
